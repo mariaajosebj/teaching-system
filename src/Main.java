@@ -39,7 +39,7 @@ public class Main {
                     System.out.println("***** Exit System *******");
                     break;
             }
-        } while(option != 5);
+        } while(option != 4);
     }
 
     public static Student createStudent() {
@@ -100,14 +100,18 @@ public class Main {
         int teacherOption = scanner.nextInt();
         Teacher teacher = teacherList.get(teacherOption - 1);
 
+
         List<Student> students = new ArrayList<>();
+        System.out.println("Please enter the no. of Students to register: ");
+        int noOfStudent = scanner.nextInt();
 
-        System.out.println("Please select a student: ");
-        printStudentList(studentList);
-        int studentOption = scanner.nextInt();
-        Student student = studentList.get(studentOption - 1);
-
-        students.add(student);
+        for(int n = 0; n < noOfStudent; n++) {
+            System.out.println("Please select a student: ");
+            printStudentList(studentList);
+            int studentOption = scanner.nextInt();
+            Student student = studentList.get(studentOption - 1);
+            students.add(student);
+        }
 
         return new Subject(name, teacher, students);
     }
